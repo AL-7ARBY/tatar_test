@@ -14,13 +14,45 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
+  gem 'compass-rails'
+  gem 'zurb-foundation'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+gem 'slim-rails'
+
+# https://github.com/ernie/squeel
+gem 'squeel'
+
+group :development do
+  gem 'quiet_assets'
+  gem 'rails_best_practices'
+  gem 'looksee'
+
+  # https://github.com/schneems/sextant
+  gem 'sextant'
+
+  # for rails panel chrome plugin
+  gem 'meta_request', '0.2.0'
+
+  # https://github.com/charliesome/better_errors
+  gem "binding_of_caller"
+  gem 'better_errors'          
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

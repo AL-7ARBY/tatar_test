@@ -64,5 +64,19 @@ module TatarTest
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+      g.helper        false
+      g.stylesheets   false
+      g.javascripts   false
+
+      g.test_framework :rspec,
+        :view_specs => false,
+        :controller_specs => true, 
+        :helper_specs => false,
+        :routing_specs => true,
+        :fixture => true,
+        :fixture_replacement => "factory_girl"
+    end
   end
 end
