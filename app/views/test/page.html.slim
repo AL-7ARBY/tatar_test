@@ -1,0 +1,5 @@
+article
+  h2= Faker::Lorem.sentence[0..-2]
+  h5.subheader= Faker::Lorem.sentences(2).join(' ')
+  - 10.times do
+    p= Faker::Lorem.paragraph

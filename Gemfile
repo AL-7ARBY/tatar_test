@@ -51,8 +51,11 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'factory_girl_rails'
-  gem 'faker'
 end
+
+# чисто для теста, чтобы страницу забить текстом. По хорошему это должно быть
+# в предыдущей группе
+gem 'faker'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

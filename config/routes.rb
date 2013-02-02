@@ -1,4 +1,6 @@
 TatarTest::Application.routes.draw do
+  get "test/page"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
