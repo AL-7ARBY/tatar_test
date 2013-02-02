@@ -35,13 +35,16 @@ describe Feedback do
     it 'should fail when no phone end mail present' do
       feedback.phone = nil
       feedback.email = nil
-      feedback.shoud_not be_valid
+      feedback.should_not be_valid
     end
   end
 
   it "should send mail to admin after create" do
+    mailer = mock
+    mailer.should_receive(:deliver)
+
     model = FactoryGirl.build(:feedback)
-    FeedbackMailer.should_recieve(:feedback).with(model)
+    FeedbackMailer.should_receive(:feedback).with(model).and_return(mailer)
     model.save
   end
 end
