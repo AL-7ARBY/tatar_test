@@ -32,7 +32,9 @@ gem 'squeel'
 group :development do
   gem 'quiet_assets'
   gem 'rails_best_practices'
-  gem 'looksee'
+
+  # с другого git'а чтобы работало с falcon patch
+  gem 'looksee', git: 'git://github.com/fxposter/looksee.git'
 
   # https://github.com/schneems/sextant
   gem 'sextant'
@@ -48,6 +50,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'email_spec'
   gem 'database_cleaner'
 
   gem 'factory_girl_rails'
