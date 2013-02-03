@@ -76,5 +76,18 @@ describe Feedback do
         feedback.resolve!
       }.to raise_error
     end
+
+    it "can be reopened from resolved" do
+      feedback.start!
+      feedback.resolve!
+      feedback.reopen!
+      feedback.state.should eq('open')
+    end
+
+    it "can be reopened from declined" do
+      feedback.decline!
+      feedback.reopen!
+      feedback.state.should eq('open')
+    end
   end
 end

@@ -10,6 +10,22 @@ class Feedback < ActiveRecord::Base
     allow_blank: true
   validate :phone_validation
 
+  # STATE MACHINE
+  state_machine initial: :open do
+    event :decline do
+      transition :open => :declined
+    end
+    event :start do
+      transition :open => :in_progress
+    end
+    event :resolve do
+      transition :in_progress => :resolved
+    end
+    event :reopen do
+      transition [:declined, :resolved] => :open
+    end
+  end
+
 private
   def email_or_phone_presence
     if (email.blank? and phone.blank?)
