@@ -15,7 +15,7 @@ head
   / Set the viewport width to device width for mobile
   meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-  title= content_for?(:title) ? yield(:title) : "Untitled"
+  title= content_for?(:title) ? yield(:title) : "Some kind of page =)"
 
   / Included CSS Files
   = stylesheet_link_tag "application"
@@ -83,5 +83,7 @@ body
             = f.text_area :content, rows: 10, placeholder: 'describe your problem'
         .row
           .twelve.columns
-            = f.submit 'Send feedback', class: 'button right'
+            #feedbackSubmitButton
+              = f.submit 'Send feedback', class: 'button right'
+            a.button.right#feedbackSendingText href="#" style="display:none" sending...
       a.close-reveal-modal &#215;
