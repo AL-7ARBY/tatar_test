@@ -1,4 +1,6 @@
 TatarTest::Application.routes.draw do
+  resources :feedbacks, only: [:create]
+
   get "test/page"
 
   # The priority is based upon order of creation:
