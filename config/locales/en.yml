@@ -7,7 +7,7 @@ en:
     errors:
       models:
         feedback:
-          phone_or_email_blank: Phone or email should be present
+          phone_or_email_blank: phone or email should be present
           attributes:
             phone:
-              invalid: Phone is invalid
+              invalid: is invalid

@@ -32,7 +32,7 @@ describe Feedback do
       feedback.should be_valid
     end
 
-    it 'should fail when no phone end mail present' do
+    it 'should fail when no phone and mail present' do
       feedback.phone = nil
       feedback.email = nil
       feedback.should_not be_valid

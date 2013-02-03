@@ -43,7 +43,7 @@ body
           a href="#" data-reveal-id="feedbackModal" Send feedback
 
     .row
-      .twelve.columns
+      .twelve.columns#content
         == yield
 
     footer.row
@@ -57,10 +57,10 @@ body
               li= link_to 'Nothing',   '#'
               li= link_to 'Void', '#'
               
-    /! feedback modal
+    /! feedback modals
     #feedbackModal.reveal-modal
       h4 Send feedback
-      = form_for Feedback.new, url: '/' do |f|
+      = form_for Feedback.new, remote: true, html: {'data-type' => :json} do |f|
         .row
           .two.columns
             = f.label :name, class: 'right inline'
