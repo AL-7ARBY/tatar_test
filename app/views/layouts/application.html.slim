@@ -30,17 +30,17 @@ body
     nav.top-bar
       ul
         li.name
-          a href="#" Типа такая тестовая страница =)
+          a href="#" Some kind of test page =)
         li.divider
         li
-          a href="#" Ссылка в никуда
+          a href="#" Link to nothing
         li
-          a href="#" Ссылка в ничто
+          a href="#" Link to nothingness
         li
-          a href="#" Ссылка сюда же
+          a href="#" Link to self
       ul.right
         li
-          a href="#" Оставить отзыв
+          a href="#" data-reveal-id="feedbackModal" Send feedback
 
     .row
       .twelve.columns
@@ -56,3 +56,32 @@ body
             ul.link-list.right
               li= link_to 'Nothing',   '#'
               li= link_to 'Void', '#'
+              
+    /! feedback modal
+    #feedbackModal.reveal-modal
+      h4 Send feedback
+      = form_for Feedback.new, url: '/' do |f|
+        .row
+          .two.columns
+            = f.label :name, class: 'right inline'
+          .ten.columns
+            = f.text_field :name, placeholder: 'required'
+        .row
+          .two.columns
+            = f.label :email, class: 'right inline'
+          .ten.columns
+            = f.text_field :email, placeholder: 'email or phone required'
+        .row
+          .two.columns
+            = f.label :phone, class: 'right inline'
+          .ten.columns
+            = f.text_field :phone, placeholder: 'email or phone required'
+        .row
+          .two.columns
+            = f.label :content, class: 'right inline'
+          .ten.columns
+            = f.text_area :content, rows: 10, placeholder: 'describe your problem'
+        .row
+          .twelve.columns
+            = f.submit 'Send feedback', class: 'button right'
+      a.close-reveal-modal &#215;

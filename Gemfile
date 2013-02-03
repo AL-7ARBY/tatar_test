@@ -50,7 +50,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'email_spec'
+  #gem 'email_spec'
   gem 'database_cleaner'
 
   gem 'factory_girl_rails'
