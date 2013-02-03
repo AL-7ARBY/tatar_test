@@ -16,7 +16,7 @@ describe Feedback do
   end
 
   context "email/phone presence tests:" do
-    let!(:feedback) {FactoryGirl.build(:feedback)}
+    let(:feedback) {FactoryGirl.build(:feedback)}
 
     it 'should ok when only email presents' do
       feedback.phone = nil
@@ -46,5 +46,35 @@ describe Feedback do
     model = FactoryGirl.build(:feedback)
     FeedbackMailer.should_receive(:feedback).with(model).and_return(mailer)
     model.save
+  end
+
+  context "state machine" do
+    let(:feedback) {FactoryGirl.create(:feedback)}
+
+    it 'should have :open initial state' do
+      feedback.state_name.should eq(:open)
+    end
+
+    it 'can be declined' do
+      feedback.decline!
+      feedback.state.should eq('declined')
+    end
+
+    it 'can be set in progress' do
+      feedback.start!
+      feedback.state.should eq('in_progress')
+    end
+
+    it "can be resolved after started" do
+      feedback.start!
+      feedback.resolve!
+      feedback.state.should eq('resolved')
+    end
+
+    it "can't be resolved right from open state" do
+      expect {
+        feedback.resolve!
+      }.to raise_error
+    end
   end
 end

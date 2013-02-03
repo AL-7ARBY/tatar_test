@@ -29,6 +29,11 @@ gem 'slim-rails'
 # https://github.com/ernie/squeel
 gem 'squeel'
 
+# for hypermedia api
+gem 'roar-rails'
+# for statuses
+gem 'state_machine'
+
 group :development do
   gem 'quiet_assets'
   gem 'rails_best_practices'
